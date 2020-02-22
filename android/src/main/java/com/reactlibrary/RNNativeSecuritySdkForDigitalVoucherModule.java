@@ -4,6 +4,9 @@ package com.reactlibrary;
 import android.content.Context;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import com.kt.sw.SecureWalletHelper;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
