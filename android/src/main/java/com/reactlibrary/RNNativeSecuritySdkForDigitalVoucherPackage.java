@@ -1,28 +1,33 @@
 
 package com.reactlibrary;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import android.content.Context;
+import android.widget.Toast;
 
-import com.facebook.react.ReactPackage;
-import com.facebook.react.bridge.NativeModule;
+import androidx.appcompat.app.AppCompatActivity;
+import com.kt.sw.SecureWalletHelper;
+
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
-public class RNNativeSecuritySdkForDigitalVoucherPackage implements ReactPackage {
-    @Override
-    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-      return Arrays.<NativeModule>asList(new RNNativeSecuritySdkForDigitalVoucherModule(reactContext));
-    }
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
 
-    // Deprecated from RN 0.47
-    public List<Class<? extends JavaScriptModule>> createJSModules() {
-      return Collections.emptyList();
-    }
+public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBaseJavaModule {
 
-    @Override
-    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-      return Collections.emptyList();
-    }
+  private final ReactApplicationContext reactContext;
+
+  public RNNativeSecuritySdkForDigitalVoucherModule(ReactApplicationContext reactContext) {
+    super(reactContext);
+    this.reactContext = reactContext;
+  }
+
+  @Override
+  public String getName() {
+    return "RNNativeSecuritySdkForDigitalVoucher";
+  }
+  @ReactMethod
+  public void show(String text) {
+    Context context = getReactApplicationContext();
+    Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+  }
 }
