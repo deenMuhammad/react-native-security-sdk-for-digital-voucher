@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040DE3D12400F40000E6F7C5 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 040DE3C22400F25500E6F7C5 /* libReact.a */; };
-		040DE3DD2400F51400E6F7C5 /* IOSNativeToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DE3DC2400F51300E6F7C5 /* IOSNativeToast.m */; };
+		040DE3ED2401042A00E6F7C5 /* IOSNativeToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 040DE3EB2401042A00E6F7C5 /* IOSNativeToast.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNNativeSecuritySdkForDigitalVoucher.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNNativeSecuritySdkForDigitalVoucher.m */; };
 /* End PBXBuildFile section */
 
@@ -85,8 +85,8 @@
 
 /* Begin PBXFileReference section */
 		040DE3B62400F25500E6F7C5 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		040DE3D32400F51300E6F7C5 /* IOSNativeToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOSNativeToast.h; path = "../../../../Downloads/RNNativeLibrary-IOSToastFiles/IOSNativeToast.h"; sourceTree = "<group>"; };
-		040DE3DC2400F51300E6F7C5 /* IOSNativeToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IOSNativeToast.m; path = "../../../../Downloads/RNNativeLibrary-IOSToastFiles/IOSNativeToast.m"; sourceTree = "<group>"; };
+		040DE3EB2401042A00E6F7C5 /* IOSNativeToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOSNativeToast.m; sourceTree = "<group>"; };
+		040DE3EC2401042A00E6F7C5 /* IOSNativeToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOSNativeToast.h; sourceTree = "<group>"; };
 		134814201AA4EA6300B7C361 /* libRNNativeSecuritySdkForDigitalVoucher.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNNativeSecuritySdkForDigitalVoucher.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E7B5881CC2AC0600A0062D /* RNNativeSecuritySdkForDigitalVoucher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNativeSecuritySdkForDigitalVoucher.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNNativeSecuritySdkForDigitalVoucher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNativeSecuritySdkForDigitalVoucher.m; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				040DE3D32400F51300E6F7C5 /* IOSNativeToast.h */,
-				040DE3DC2400F51300E6F7C5 /* IOSNativeToast.m */,
+				040DE3EC2401042A00E6F7C5 /* IOSNativeToast.h */,
+				040DE3EB2401042A00E6F7C5 /* IOSNativeToast.m */,
 				B3E7B5881CC2AC0600A0062D /* RNNativeSecuritySdkForDigitalVoucher.h */,
 				B3E7B5891CC2AC0600A0062D /* RNNativeSecuritySdkForDigitalVoucher.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -269,7 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				040DE3DD2400F51400E6F7C5 /* IOSNativeToast.m in Sources */,
+				040DE3ED2401042A00E6F7C5 /* IOSNativeToast.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNNativeSecuritySdkForDigitalVoucher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
