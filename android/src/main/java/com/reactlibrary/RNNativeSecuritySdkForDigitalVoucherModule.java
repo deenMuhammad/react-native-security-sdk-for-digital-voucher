@@ -7,6 +7,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.kt.sw.SecureWalletHelper;
 
+import java.nio.charset.Charset;
+import java.util.Collection;
+import java.util.HashMap;
+import android.app.Activity;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -25,9 +30,11 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
   public String getName() {
     return "RNNativeSecuritySdkForDigitalVoucher";
   }
+
   @ReactMethod
   public void show(String text) {
-    Context context = getReactApplicationContext();
-    Toast.makeText(context, text, Toast.LENGTH_LONG).show();
-  }
+    final Activity activity = getCurrentActivity();
+      SecureWalletHelper helper = new SecureWalletHelper(activity);
+      
+   }
 }
