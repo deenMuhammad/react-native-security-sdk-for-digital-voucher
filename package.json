@@ -39,6 +39,7 @@
   ],
   "author": "DEEN",
   "license": "MIT",
+  "name": "react-native-native-security-sdk-for-digital-voucher",
   "devDependencies": {
     "react-native": "0.41.2"
   },
