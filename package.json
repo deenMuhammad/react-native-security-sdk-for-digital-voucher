@@ -37,18 +37,6 @@
   "keywords": [
     "react-native"
   ],
-<<<<<<< HEAD
-  "license": "MIT",
-  "main": "index.js",
-  "name": "react-native-native-security-sdk-for-digital-voucher",
-  "peerDependencies": {
-    "react-native": "^0.41.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.0.5"
-=======
   "author": "DEEN",
   "license": "MIT",
   "devDependencies": {
@@ -57,5 +45,4 @@
   "peerDependencies": {
     "react-native": "^0.41.2"
   }
->>>>>>> master
 }
