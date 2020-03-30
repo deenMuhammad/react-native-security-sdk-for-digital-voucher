@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "_args": [
     [
       "react-native-native-security-sdk-for-digital-voucher@1.0.5",
@@ -33,10 +34,19 @@
   "description": "## Getting started",
   "devDependencies": {
     "react-native": "0.41.2"
+=======
+  "name": "react-native-native-security-sdk-for-digital-voucher",
+  "version": "1.0.5",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> master
   },
   "keywords": [
     "react-native"
   ],
+<<<<<<< HEAD
   "license": "MIT",
   "main": "index.js",
   "name": "react-native-native-security-sdk-for-digital-voucher",
@@ -47,4 +57,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "version": "1.0.5"
+=======
+  "author": "DEEN",
+  "license": "MIT",
+  "devDependencies": {
+    "react-native": "0.41.2"
+  },
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+>>>>>>> master
 }
