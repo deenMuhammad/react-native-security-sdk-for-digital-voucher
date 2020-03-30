@@ -17,6 +17,8 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
+import android.util.Base64;
+
 import android.util.Log;
 import java.util.Arrays;
 
@@ -33,6 +35,7 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
   public String getName() {
     return "RNNativeSecuritySdkForDigitalVoucher";
   }
+
 
   /* helper.newKey(new SecureWalletHelperCallback.NewKeyCallback() {
 			@Override
@@ -53,7 +56,7 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
 	final Activity activity = getCurrentActivity();
 	//final Callback ccb = cb;
       SecureWalletHelper helper = new SecureWalletHelper(activity);
-	  String did = "did:bnk:8a77459d24eaf4b3ae2b238a2027b74389cd2830";
+	  String did = "did:bnk:7a26eb80e6da9c6e61c59f81ed09bde4e3930c8f";
 	  byte[] privateKey = "yyyyyyyyy".getBytes();
 
 	  try {
@@ -81,8 +84,11 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
 		helper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
 			@Override
 			public void onSuccess(byte[] bytes) {
+				String SigStr = Base64.encodeToString(bytes, 0);
+
 				Log.d("sig", "signature : " + Arrays.toString(bytes));
-				cb.invoke(bytes);
+				Log.d("sig", "signature str : " + SigStr);
+				cb.invoke(SigStr);
 			}
 			@Override
 			public void onFailure(int i) {
