@@ -1,0 +1,99 @@
+{
+  "_args": [
+    [
+      "react-native-native-security-sdk-for-digital-voucher@1.0.5",
+      "/Users/slowquery/Desktop/Project/ReactNative/DigitalVoucher"
+    ]
+  ],
+  "_from": "react-native-native-security-sdk-for-digital-voucher@1.0.5",
+  "_id": "react-native-native-security-sdk-for-digital-voucher@1.0.5",
+  "_inBundle": false,
+  "_integrity": "sha512-bCW8gZ+f8XQPeS5CU07zOf60XO/syFoKtYk+mIXeTu6Js9rjLRDRV1QMWq2EhsVRjvQUN3AWHI91Whul5x3ovQ==",
+  "_location": "/react-native-native-security-sdk-for-digital-voucher",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "react-native-native-security-sdk-for-digital-voucher@1.0.5",
+    "name": "react-native-native-security-sdk-for-digital-voucher",
+    "escapedName": "react-native-native-security-sdk-for-digital-voucher",
+    "rawSpec": "1.0.5",
+    "saveSpec": null,
+    "fetchSpec": "1.0.5"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-native-security-sdk-for-digital-voucher/-/react-native-native-security-sdk-for-digital-voucher-1.0.5.tgz",
+  "_spec": "1.0.5",
+  "_where": "/Users/slowquery/Desktop/Project/ReactNative/DigitalVoucher",
+  "author": "DEEN",
+  "description": "## Getting started",
+  "devDependencies": {
+    "react-native": "0.41.2"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "license": "MIT",
+  "name": "react-native-native-security-sdk-for-digital-voucher",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.5",
+  "react-native": {
+    "zlib": "browserify-zlib",
+    "console": "console-browserify",
+    "constants": "constants-browserify",
+    "crypto": "react-native-crypto",
+    "dns": "dns.js",
+    "net": "react-native-tcp",
+    "domain": "domain-browser",
+    "http": "@tradle/react-native-http",
+    "https": "https-browserify",
+    "os": "react-native-os",
+    "path": "path-browserify",
+    "querystring": "querystring-es3",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "dgram": "react-native-udp",
+    "stream": "stream-browserify",
+    "timers": "timers-browserify",
+    "tty": "tty-browserify",
+    "vm": "vm-browserify",
+    "tls": false
+  },
+  "browser": {
+    "zlib": "browserify-zlib",
+    "console": "console-browserify",
+    "constants": "constants-browserify",
+    "crypto": "react-native-crypto",
+    "dns": "dns.js",
+    "net": "react-native-tcp",
+    "domain": "domain-browser",
+    "http": "@tradle/react-native-http",
+    "https": "https-browserify",
+    "os": "react-native-os",
+    "path": "path-browserify",
+    "querystring": "querystring-es3",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "dgram": "react-native-udp",
+    "stream": "stream-browserify",
+    "timers": "timers-browserify",
+    "tty": "tty-browserify",
+    "vm": "vm-browserify",
+    "tls": false
+  }
+}
