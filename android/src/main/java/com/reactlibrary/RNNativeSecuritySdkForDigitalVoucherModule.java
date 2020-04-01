@@ -36,8 +36,13 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
     return "RNNativeSecuritySdkForDigitalVoucher";
   }
 
+	  //helper.registNewKey(did);
+  @ReactMethod
+  public void getSignature(String did, String needEnc, final Callback cb) {
+		final Activity activity = getCurrentActivity();
+		SecureWalletHelper helper = new SecureWalletHelper(activity);
 
-  /* helper.newKey(new SecureWalletHelperCallback.NewKeyCallback() {
+		/* helper.newKey(new SecureWalletHelperCallback.NewKeyCallback() {
 			@Override
 			public void onSuccess(Collection<? extends byte[]> bytes) {
 				byte[][] keys = bytes.toArray(new byte[0][]);
@@ -49,33 +54,28 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
 			public void onFailure(int i) {
 				Log.d("sig", "failed to get new key : " + i);
 			}
-		  }); */
-	  //helper.registNewKey(did);
-  @ReactMethod
-  public void show(String text, final Callback cb) {
-	final Activity activity = getCurrentActivity();
-	//final Callback ccb = cb;
-      SecureWalletHelper helper = new SecureWalletHelper(activity);
-	  String did = "did:bnk:7a26eb80e6da9c6e61c59f81ed09bde4e3930c8f";
+		}); */
+      
+	  //String did = "did:bnk:7a26eb80e6da9c6e61c59f81ed09bde4e3930c8f";
 	  byte[] privateKey = "yyyyyyyyy".getBytes();
 
 	  try {
-		helper.registNewKey(did, privateKey, new SecureWalletHelperCallback.RegistNewKeyCallback() {
-			@Override
-			public void onSuccess(String s) {
-				Log.d("sig", "key registration result: " + s);
-			}
+			helper.registNewKey(did, new SecureWalletHelperCallback.RegistNewKeyCallback() {
+				@Override
+				public void onSuccess(String s) {
+					Log.d("sig", "key registration result: " + s);
+				}
 
-			@Override
-			public void onFailure(int i) {
-				Log.d("sig", "failed to register a new key : " + i);
-			}
-		});
-	  } catch(Exception e) {
-		e.printStackTrace();
-	  }
+				@Override
+				public void onFailure(int i) {
+					Log.d("sig", "failed to register a new key : " + i);
+				}
+			});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	  String needEnc = "20032405007740";
+	  //String needEnc = "20032405007740";
 	  byte[] needbytes = needEnc.getBytes();
 	  final byte[] sigbyte;
 
@@ -84,7 +84,7 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
 		helper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
 			@Override
 			public void onSuccess(byte[] bytes) {
-				String SigStr = Base64.encodeToString(bytes, 0);
+				String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
 
 				Log.d("sig", "signature : " + Arrays.toString(bytes));
 				Log.d("sig", "signature str : " + SigStr);
