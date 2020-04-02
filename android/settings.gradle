@@ -1,1 +1,1 @@
-include ':securewallet'
+include ':securewallet-test'

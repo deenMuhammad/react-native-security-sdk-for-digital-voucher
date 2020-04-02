@@ -1,6 +1,6 @@
 
 configurations.maybeCreate("default")
-artifacts.add("default", file('securewallet.aar'))
+artifacts.add("default", file('securewallet-test.aar'))
 
 buildscript {
     repositories {
@@ -42,7 +42,7 @@ repositories {
 dependencies {
     compile 'com.facebook.react:react-native:+'
     implementation fileTree(dir: 'libs', include: ['*.aar'])
-    implementation fileTree(dir: 'libs/securewallet.aar', include: ['core-ktx-1.1.0.aar'])
-    implementation fileTree(dir: 'libs/securewallet.aar', include: ['biometric-1.0.0'])
+    implementation fileTree(dir: 'libs/securewallet-test.aar', include: ['core-ktx-1.1.0.aar'])
+    implementation fileTree(dir: 'libs/securewallet-test.aar', include: ['biometric-1.0.0'])
 }
   
