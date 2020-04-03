@@ -38,66 +38,72 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
   }
 
   @ReactMethod
-  public void getSignature(String did, String needEnc, Boolean isRegistNewKeyOnce, final Callback cb) {
+  public void getSignature(final String did, String needEnc, final Callback cb) {
 		final Activity activity = getCurrentActivity();
 		final SecureWalletHelper helper = new SecureWalletHelper(activity);
 
 		final byte[] needbytes = needEnc.getBytes();
 
 	  try {
-			if(isRegistNewKeyOnce) {
-				helper.registNewKey(did, new SecureWalletHelperCallback.RegistNewKeyCallback() {
-					@Override
-					public void onSuccess(String s) {
-						Log.d("sig", "key registration result: " + s);
+			helper.getDIDDocument(did, new SecureWalletHelperCallback.DIDDocumentCallback() {
+				@Override
+				public void onSuccess(String s) {
+					Log.d("sig", "get did doc result : " + s);
+					final SecureWalletHelper signHelper = new SecureWalletHelper(activity);
 	
-						final SecureWalletHelper signHelper = new SecureWalletHelper(activity);
-	
-						signHelper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
-							@Override
-							public void onSuccess(byte[] bytes) {
-								String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
-	
-								Log.d("sig", "signature : " + Arrays.toString(bytes));
-								Log.d("sig", "signature str : " + SigStr);
-								cb.invoke(false, SigStr);
-							}
-	
-							@Override
-							public void onFailure(int i) {
-								Log.d("sig", "failed to sign : " + i);
-								cb.invoke(true, i);
-							}
-						});
-					}
-	
-					@Override
-					public void onFailure(int i) {
-						Log.d("sig", "failed to register a new key : " + i);
-						cb.invoke(true, i);
-					}
-				});
-			}
-			else {
-				final SecureWalletHelper signHelper = new SecureWalletHelper(activity);
-				signHelper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
-					@Override
-					public void onSuccess(byte[] bytes) {
-						String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
+					signHelper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
+						@Override
+						public void onSuccess(byte[] bytes) {
+							String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
 
-						Log.d("sig", "signature : " + Arrays.toString(bytes));
-						Log.d("sig", "signature str : " + SigStr);
-						cb.invoke(false, SigStr);
-					}
+							Log.d("sig", "signature : " + Arrays.toString(bytes));
+							Log.d("sig", "signature str : " + SigStr);
+							cb.invoke(false, SigStr);
+						}
 
-					@Override
-					public void onFailure(int i) {
-						Log.d("sig", "failed to sign : " + i);
-						cb.invoke(true, i);
-					}
-				});
-			}
-			
+						@Override
+						public void onFailure(int i) {
+							Log.d("sig", "failed to sign : " + i);
+							cb.invoke(true, i);
+						}
+					});
+				}
+
+				@Override
+				public void onFailure(int i) {
+					Log.d("sig", "failed to get did doc : " + i);
+					helper.registNewKey(did, new SecureWalletHelperCallback.RegistNewKeyCallback() {
+						@Override
+						public void onSuccess(String s) {
+							Log.d("sig", "key registration result: " + s);
+							final SecureWalletHelper signHelper = new SecureWalletHelper(activity);
+	
+							signHelper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
+								@Override
+								public void onSuccess(byte[] bytes) {
+									String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
+		
+									Log.d("sig", "signature : " + Arrays.toString(bytes));
+									Log.d("sig", "signature str : " + SigStr);
+									cb.invoke(false, SigStr);
+								}
+		
+								@Override
+								public void onFailure(int i) {
+									Log.d("sig", "failed to sign : " + i);
+									cb.invoke(true, i);
+								}
+							});
+						}
+
+						@Override
+						public void onFailure(int i) {
+							Log.d("sig", "failed to register a new key : " + i);
+							cb.invoke(true, i);
+						}
+					});
+				}
+			});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
