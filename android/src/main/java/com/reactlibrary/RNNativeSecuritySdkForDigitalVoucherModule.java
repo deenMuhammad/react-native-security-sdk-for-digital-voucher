@@ -38,51 +38,66 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
   }
 
   @ReactMethod
-  public void getSignature(String did, String needEnc, final Callback cb) {
+  public void getSignature(String did, String needEnc, Boolean isRegistNewKeyOnce, final Callback cb) {
 		final Activity activity = getCurrentActivity();
 		final SecureWalletHelper helper = new SecureWalletHelper(activity);
-		//final Handler handler = new Handler();
 
-		byte[] privateKey = "yyyyyyyyy".getBytes();
 		final byte[] needbytes = needEnc.getBytes();
 
 	  try {
-			helper.registNewKey(did, new SecureWalletHelperCallback.RegistNewKeyCallback() {
-				@Override
-				public void onSuccess(String s) {
-					Log.d("sig", "key registration result: " + s);
+			if(isRegistNewKeyOnce) {
+				helper.registNewKey(did, new SecureWalletHelperCallback.RegistNewKeyCallback() {
+					@Override
+					public void onSuccess(String s) {
+						Log.d("sig", "key registration result: " + s);
+	
+						final SecureWalletHelper signHelper = new SecureWalletHelper(activity);
+	
+						signHelper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
+							@Override
+							public void onSuccess(byte[] bytes) {
+								String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
+	
+								Log.d("sig", "signature : " + Arrays.toString(bytes));
+								Log.d("sig", "signature str : " + SigStr);
+								cb.invoke(false, SigStr);
+							}
+	
+							@Override
+							public void onFailure(int i) {
+								Log.d("sig", "failed to sign : " + i);
+								cb.invoke(true, i);
+							}
+						});
+					}
+	
+					@Override
+					public void onFailure(int i) {
+						Log.d("sig", "failed to register a new key : " + i);
+						cb.invoke(true, i);
+					}
+				});
+			}
+			else {
+				final SecureWalletHelper signHelper = new SecureWalletHelper(activity);
+				signHelper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
+					@Override
+					public void onSuccess(byte[] bytes) {
+						String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
 
-					/* handler.post(new Runnable() {
-						@Override
-						public void run() { */
-							final SecureWalletHelper signHelper = new SecureWalletHelper(activity);
+						Log.d("sig", "signature : " + Arrays.toString(bytes));
+						Log.d("sig", "signature str : " + SigStr);
+						cb.invoke(false, SigStr);
+					}
 
-							signHelper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
-								@Override
-								public void onSuccess(byte[] bytes) {
-									String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
-		
-									Log.d("sig", "signature : " + Arrays.toString(bytes));
-									Log.d("sig", "signature str : " + SigStr);
-									cb.invoke(false, SigStr);
-								}
-		
-								@Override
-								public void onFailure(int i) {
-									Log.d("sig", "failed to sign : " + i);
-									cb.invoke(true, i);
-								}
-							});
-						//}
-					//});					
-				}
-
-				@Override
-				public void onFailure(int i) {
-					Log.d("sig", "failed to register a new key : " + i);
-					cb.invoke(true, i);
-				}
-			});
+					@Override
+					public void onFailure(int i) {
+						Log.d("sig", "failed to sign : " + i);
+						cb.invoke(true, i);
+					}
+				});
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
