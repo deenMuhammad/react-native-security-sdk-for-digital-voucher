@@ -1,0 +1,99 @@
+{
+  "_args": [
+    [
+      "git+https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git",
+      "/Users/slowquery/Desktop/Project/ReactNative/DigitalVoucher"
+    ]
+  ],
+  "_from": "git+https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git",
+  "_id": "react-native-native-security-sdk-for-digital-voucher@git+https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git#f5fc1eab932b5d94a0bdf438258909266b1df84b",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/react-native-native-security-sdk-for-digital-voucher",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "git+https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git",
+    "rawSpec": "git+https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git",
+    "saveSpec": "git+https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git",
+    "fetchSpec": "https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git#f5fc1eab932b5d94a0bdf438258909266b1df84b",
+  "_spec": "git+https://github.com/deenMuhammad/react-native-security-sdk-for-digital-voucher.git",
+  "_where": "/Users/slowquery/Desktop/Project/ReactNative/DigitalVoucher",
+  "author": {
+    "name": "DEEN"
+  },
+  "browser": {
+    "zlib": "browserify-zlib",
+    "console": "console-browserify",
+    "constants": "constants-browserify",
+    "crypto": "react-native-crypto",
+    "dns": "dns.js",
+    "net": "react-native-tcp",
+    "domain": "domain-browser",
+    "http": "@tradle/react-native-http",
+    "https": "https-browserify",
+    "os": "react-native-os",
+    "path": "path-browserify",
+    "querystring": "querystring-es3",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "dgram": "react-native-udp",
+    "stream": "stream-browserify",
+    "timers": "timers-browserify",
+    "tty": "tty-browserify",
+    "vm": "vm-browserify",
+    "tls": false
+  },
+  "description": "## Getting started",
+  "devDependencies": {
+    "react-native": "0.41.2"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "license": "MIT",
+  "name": "react-native-native-security-sdk-for-digital-voucher",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  },
+  "react-native": {
+    "zlib": "browserify-zlib",
+    "console": "console-browserify",
+    "constants": "constants-browserify",
+    "crypto": "react-native-crypto",
+    "dns": "dns.js",
+    "net": "react-native-tcp",
+    "domain": "domain-browser",
+    "http": "@tradle/react-native-http",
+    "https": "https-browserify",
+    "os": "react-native-os",
+    "path": "path-browserify",
+    "querystring": "querystring-es3",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "dgram": "react-native-udp",
+    "stream": "stream-browserify",
+    "timers": "timers-browserify",
+    "tty": "tty-browserify",
+    "vm": "vm-browserify",
+    "tls": false
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.7"
+}
