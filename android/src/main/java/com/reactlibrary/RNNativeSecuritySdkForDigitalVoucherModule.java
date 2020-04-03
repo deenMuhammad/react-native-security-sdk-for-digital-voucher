@@ -40,7 +40,7 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
   @ReactMethod
   public void getSignature(String did, String needEnc, final Callback cb) {
 		final Activity activity = getCurrentActivity();
-		SecureWalletHelper helper = new SecureWalletHelper(activity);
+		final SecureWalletHelper helper = new SecureWalletHelper(activity);
 
 		/* helper.newKey(new SecureWalletHelperCallback.NewKeyCallback() {
 			@Override
@@ -57,13 +57,30 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
 		}); */
       
 	  //String did = "did:bnk:7a26eb80e6da9c6e61c59f81ed09bde4e3930c8f";
-	  byte[] privateKey = "yyyyyyyyy".getBytes();
+		byte[] privateKey = "yyyyyyyyy".getBytes();
+		final byte[] needbytes = needEnc.getBytes();
 
 	  try {
 			helper.registNewKey(did, new SecureWalletHelperCallback.RegistNewKeyCallback() {
 				@Override
 				public void onSuccess(String s) {
 					Log.d("sig", "key registration result: " + s);
+
+					helper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
+						@Override
+						public void onSuccess(byte[] bytes) {
+							String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
+
+							Log.d("sig", "signature : " + Arrays.toString(bytes));
+							Log.d("sig", "signature str : " + SigStr);
+							cb.invoke(SigStr);
+						}
+
+						@Override
+						public void onFailure(int i) {
+							Log.d("sig", "failed to sign : " + i);
+						}
+					});
 				}
 
 				@Override
@@ -75,30 +92,27 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
 			e.printStackTrace();
 		}
 
+		/* try {
+			//helper.sign(message, base64EncodedPrivateKey, new SecureWalletHelperCallback.SignCallback() {
+			helper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
+				@Override
+				public void onSuccess(byte[] bytes) {
+					String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
+
+					Log.d("sig", "signature : " + Arrays.toString(bytes));
+					Log.d("sig", "signature str : " + SigStr);
+					cb.invoke(SigStr);
+				}
+				@Override
+				public void onFailure(int i) {
+					Log.d("sig", "failed to sign : " + i);
+				}
+			} );
+		} catch (Exception e) {
+			e.printStackTrace();
+		} */
+
 	  //String needEnc = "20032405007740";
-	  byte[] needbytes = needEnc.getBytes();
-	  final byte[] sigbyte;
-
-	  try {
-		//helper.sign(message, base64EncodedPrivateKey, new SecureWalletHelperCallback.SignCallback() {
-		helper.sign(needbytes, new SecureWalletHelperCallback.SignCallback() {
-			@Override
-			public void onSuccess(byte[] bytes) {
-				String SigStr = Base64.encodeToString(bytes, Base64.NO_WRAP);
-
-				Log.d("sig", "signature : " + Arrays.toString(bytes));
-				Log.d("sig", "signature str : " + SigStr);
-				cb.invoke(SigStr);
-			}
-			@Override
-			public void onFailure(int i) {
-				Log.d("sig", "failed to sign : " + i);
-			}
-		} );
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-	
 
 	  /* String needEnc = "20032405007740";
 	  byte[] needbytes = needEnc.getBytes();
