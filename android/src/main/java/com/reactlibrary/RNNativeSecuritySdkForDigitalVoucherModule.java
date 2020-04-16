@@ -75,6 +75,7 @@ public class RNNativeSecuritySdkForDigitalVoucherModule extends ReactContextBase
 				@Override
 				public void onFailure(int i) {					
 					Log.d("sig", "update key fail : " + i);
+					cb.invoke(true, i);
 				}
 			});
 		} catch (Exception e) {
